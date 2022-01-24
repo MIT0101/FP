@@ -1,0 +1,1180 @@
+java scripte whole code
+----------------------------------------------------
+/*
+//acsess to contaner 
+const slider_contaner=document.querySelector("slider_contaner.a1");
+//all image is here in a1
+const all_image_a1=document.querySelectorAll(".slider.a1 img");
+//accsess to right btn in a1
+const btn_right_a1=document.querySelector(".next_btn_rt");
+//accsess to left btn in a1
+const btn_left_a1=document.querySelector(".next_btn_lt");
+
+
+
+const rt=document.getElementById("rt");
+
+
+ imgs_arr=new Array(3);
+ for(var i=0;i<3;i++){
+imgs_arr[i]=new Image();
+imgs_arr[i].src=all_image_a1[i].src;
+ }
+
+ btn_right_a1.onclick=function(){
+    //all_image_a1[0].Style="200%";
+    //transform: translateX(-10px);
+let width = all_image_a1[0].offsetWidth;
+console.log(width);
+//slider_contaner.style.transform ="translateX(-" + 200 + "px)";
+slider_contaner.innerHTML="jjj";
+    //window.scrollTo({behavior: "smooth",top: 0});
+}*/
+/*
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+//end of first slder
+
+*/
+
+
+// start image slides code
+var slideindex=0;
+
+//inti array for data of slider
+var images=new Array(3);
+var names =new Array(3);
+
+//fill array data by images and games name
+images[0]=new Image();
+images[0].src="Img_Soruce/gta5_.jpg";
+names[0]="Grand Theft Auto V";
+
+images[1]=new Image();
+images[1].src="Img_Soruce/ac_unity.jpg";
+names[1]="Assassin's Creed Unity";
+
+images[2]=new Image();
+images[2].src="Img_Soruce/SpiderMan.jpg";
+names[2]="Marvel's Spider-Man";
+
+//refrence to html slider  items (slider image,slider caption,slider count,dots)
+const slider_img=document.getElementById("slider_img");
+const slider_caption=document.getElementById("slider_caption");
+const num_counter=document.getElementById("num_counter");
+const dots = document.getElementsByClassName("dot");
+
+//inti index for images and name both
+var slideindex=0;
+//to show specefic image ,name and slider count for specefic index
+//it wiil clear all slides and set new slid
+function show_slid(index){
+slider_img.src=images[index].src;
+clear_active(dots);
+dots[index].className=dots[index].className+=" active";
+slider_caption.innerHTML=names[index];
+num_counter.innerHTML=(index+1)+"/"+dots.length;
+}
+
+//to move to next slide
+function plusslid(){
+  slideindex++;
+if(slideindex>2){
+  slideindex=0;
+}
+show_slid(slideindex);
+}
+//to move to previos slide
+function decslid(){
+  slideindex--;
+  if(slideindex<0){
+  slideindex=2;
+  }
+  show_slid(slideindex);
+  }
+//it used when user click on dots to chanch slide
+  function dot_showslid(index){
+    show_slid(index);
+    slideindex=index;
+  }
+//to clear dots active
+  function clear_active(dots){
+for(var i=0;i<dots.length;i++){
+  dots[i].className="dot";
+}
+  }
+
+//inti slider for first image by use  index 0
+show_slid(0);
+
+//end of image slider code 
+
+
+
+
+
+/*
+
+function plusslid(){
+  slideindex++;
+
+if(slideindex>3){
+slideindex=0;
+}
+showslide_byindex(slideindex);
+}
+
+function decslid(){
+  slideindex--;
+  if(slideindex<0){
+  slideindex=2;
+  }
+  
+  showslide_byindex(slideindex);
+  }
+
+  function showslide_byindex(index){
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+
+  clear_all(slides,dots);
+
+  slides[index].style.display="block";
+  dots[index].className +=" active";
+  }
+
+
+  showslide_byindex(slideindex);
+  
+
+
+function clear_all(slides,dots){
+  for(var i=0;i<slides.length;i++){
+    slides[i].style.display="none";
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  
+}
+
+*/
+
+
+//end show slides
+
+
+//use a "ScrollReveal" class to set animation when page load and start scrolling
+const sr=ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2500,
+    delay: 100,
+    });
+    
+    //to set each class animation direction starts from by using "reveal" method from ScrollReveal object
+    sr.reveal(' .left_div , .sec.hr , .sec.fps ',{origin: 'left'});
+    sr.reveal(' .main_img , .photo_contaner_big ',{origin:'righit'});
+    sr.reveal(' .sec.op , .title',{origin:'top'});
+    sr.reveal(' .slideshow-container.a1 , .slideshow-container.a2 , .vidio_contaner',{origin:'bottom'});
+
+    //refre to up button 
+    const btn_up=document.getElementById("btn_up");
+    //to set on click to up button it will scrool to top of page
+    btn_up.onclick=function(){
+      window.scrollTo({behavior: "smooth",top: 0});
+    }
+    //this code below to controle show and hide up button by change it class on scrolling
+    window.onscroll=function(){
+        if(scrollY >=390){
+          btn_up.classList="btn_up show";
+        }
+        else{
+          btn_up.classList="btn_up";
+        }
+
+      }
+
+    /*
+    const horro_video=document.getElementById("horro_video");
+    horro_video.play();
+    */
+
+  -----------------------------------------------------------------------
+css whole code 
+----------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap');
+/*to declare some varable used to*/
+:root{
+    --nav-font-family:'Open Sans', sans-serif;  
+    --nav-font-size: 1.2rem;
+    --nav-h2-font-size: 1rem;
+    --nav-color:#BDD4DA;
+    --head-contaner-backround-color:#478BA0 ;
+    --nav-btn-hover-color:#F3A692;
+    --arc-p-font-size: 1.15rem;
+    --links-color: #A442F4;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #e7e5e4;
+     overflow-x: hidden;
+}
+/*start heading custimize*/
+.header-contaner{
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color:var(--head-contaner-backround-color) ;
+    font-family: var(--nav-font-family);
+    z-index: 100;
+    
+}
+nav ul{
+    height: 2.2rem;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    list-style: none;
+    margin-left: 0;
+    
+}
+/*nav list */
+.nav-link{
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: var(--nav-font-size);
+    color: var(--nav-color);
+    transition: all 0.2s ease-in;
+    word-spacing: 0.1rem;
+}
+.nav-link:hover{
+border-bottom: solid var(--nav-btn-hover-color);
+color: var(--nav-btn-hover-color);
+}
+
+nav ul li{
+    margin-top: 0.5rem;
+}
+/*start logo div */
+.logo{
+    display: flex;
+    margin-left: 8%;
+    margin-right: 8%;
+     color:var(--nav-color) ;
+     font-size: var(--nav-h2-font-size);
+     transition: all 0.8s ease-in-out;
+}
+.logo img{
+    margin-top: 0.1rem;
+    height: 4rem;
+}
+.logo h2{
+    display: inline-block;
+ 
+}
+/*end of logo div*/
+
+/*to set contact btn btn */
+nav ul .btn_cont{
+    margin-top: 0;
+}
+.nav-link.btn-contact{
+    padding: 0.4rem;
+    margin-left: 0.4rem;
+    border: solid ;
+    border-radius: 1rem;
+}
+.nav-link.btn-contact:hover{
+    background-color:var(--nav-btn-hover-color) ;
+    color: white;
+    border-color: var(--nav-btn-hover-color) ;
+}
+/*end of contact button*/
+/*end of heading */
+/*start main section */
+section{
+    font-family: 'Cairo', sans-serif;
+}
+
+section .title{
+    margin-left: 1%;;
+    margin-bottom: -0.5rem;
+}
+
+.sec_main{
+    display: flex;
+    flex-direction: row;
+    margin-left: 1%;
+    height: 100%;
+    width: 99%;
+}
+
+.sec_main .left_div{
+    width: 55%;
+}
+.main_img{
+    width: 45%;
+}
+.main_img img{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    
+}
+article div p{
+    font-size: var(--arc-p-font-size);
+   /* font-weight: bold;*/
+}
+/*for developer a tag */
+.sec_main article div p a{
+color: var(--links-color);
+text-decoration: none;
+font-weight: bold;
+}
+.main_img{
+    margin-top: 3rem;
+    margin-left: 2%;
+}
+/*end of main section*/
+
+/*start  open world atrebute*/
+.sec {
+margin-left: 1%;
+}
+.game_examples {
+font-weight: bold;
+font-style: italic;
+}
+
+/*to set a slider */
+/*
+.slider_contaner{
+    position: relative;
+width: 100%;
+}
+.slider{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 3s ease-in-out ;
+} 
+.slider img{
+object-fit: cover;
+height: 720px;
+width: 100%;
+position: absolute;
+}
+.next_btn_lt{
+    border-radius: 50%;
+    border: solid 2px var(--links-color);
+    background-color: var(--head-contaner-backround-color);
+    position: absolute;
+    padding: 16px;
+    left: 0;
+    margin-top: 50%;
+    margin-bottom: 50%;
+
+}
+.next_btn_rt{
+    border-radius: 50%;
+    border: solid 2px var(--links-color);
+    background-color: var(--head-contaner-backround-color);
+    position: absolute;
+    padding: 16px;   
+    right: 0;
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+
+*/
+/*start */
+/*
+* {box-sizing:border-box}
+*/
+
+/* Slideshow container */
+.slideshow-container {
+  width: 85%;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: block;
+  
+}
+.mySlides img{
+    height: 600px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text_cap {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot{
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition:  all 0.3s ease;
+}
+
+.active{
+    background-color: #717171;
+}
+
+.dot:hover{
+    background-color: #717171;
+}
+
+#slider_caption{
+    bottom: 0;
+}
+
+/*end of open world*/
+
+/*start footer custimization*/
+footer{
+    background-color: var(--head-contaner-backround-color);
+}
+.social-icons{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-left: 4%;
+}
+.social-icons i{
+    padding: 0.5rem;
+    font-size: 2.2rem;
+    color: var(--nav-color);
+}
+.social-icons i:hover{
+    color: var(--nav-btn-hover-color);
+    cursor: pointer;
+}
+.footer_contaner{
+    margin-left: 4%;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+footer{
+    /*
+    display: flex;
+    flex-direction: row;
+*/
+display: grid;
+grid-template-columns: repeat(4,1fr);
+
+    font-family: var(--nav-font-family);
+    height: fit-content;
+    bottom: 0px;
+}
+.ul_menu{
+    overflow-x: hidden;
+    list-style: none;
+    padding-left: 6%;
+    padding-right: 6%;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.ul_menu li{
+   color: #5A5B5B;
+   font-weight: bold;
+}
+.ul_menu li{
+    margin-top: 0.4rem
+}
+
+
+.ft_men{
+font-family: var(--nav-font-family);
+text-decoration: none;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: var(--nav-font-size);
+    color: var(--nav-color);
+    transition: all 0.2s ease-in;
+    margin-bottom: 1rem;
+}
+.ft_men :hover{
+    border-bottom: none;
+    cursor: pointer;
+    }
+
+    .ft-link{
+        display: inline-block;
+        text-decoration: none;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: var(--nav-font-size);
+        color: var(--nav-color);
+        margin-bottom: 0.5rem;
+        transition: all 0.2s ease-in;
+    }
+    .ft-link:hover{
+        color: var(--nav-btn-hover-color);
+    }
+    
+    .menu_footer{
+        margin-left: 5%;
+    }
+    /*end footer custimazaion*/
+    /*start up button */
+    .btn_up{
+    display: flex;
+    position: fixed;
+    text-align: center;
+    font-size: 1.5rem;
+     background-color: #5A5B5B;
+     color: darkgrey;
+     width: 50px;
+     border-radius: 35px;
+     z-index: 200;
+     bottom: 2rem;
+     right: -20%;
+     transition: all 0.4s ease-in-out;
+     justify-content: center;
+     padding-top: 0.5rem;
+     padding-bottom: 0.5rem;
+    }
+    .btn_up.show{
+        right: 2rem;
+    }
+   .btn_up:hover{
+       cursor: pointer;
+       padding-top: 1rem;
+       padding-bottom: 1.2rem;
+       color: var(--nav-color);
+   }
+   /*end of up button*/
+
+   /*start photo contaner for fps sction*/
+.photo_contaner_big{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.photo_contaner{
+     display: grid;
+     grid-template-columns: repeat(4,1fr);
+     align-items: center;
+     justify-content: center;
+      
+}
+.photo_contaner #last{
+    margin-right: 3rem;
+}
+.img_div{
+position: relative;
+margin-left: 1rem;
+margin-right: 1rem;
+margin-bottom: 2rem;
+height: 400px;
+width: 300px;
+
+}
+.img_div img{
+    height: 400px;
+    width: 300px;
+/*to made it like a */
+    margin: 1rem;
+    display: flex;
+}
+
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--head-contaner-backround-color);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+  
+  .img_div:hover .overlay {
+    height: 100%;
+  }
+  
+  .text {
+    font-family: 'Cairo', sans-serif;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 1rem;
+    text-align: center;
+  }
+  .text div p{
+      left: 0;
+      bottom: 0;
+      font-size: 18px;
+      margin: 1rem;
+      text-align: center;
+  }
+/*end of photo of fps section */
+
+  /*video setting*/
+  .vidio_contaner{
+      align-items: center;
+      justify-content: center;
+  }
+  .vidio_contaner .video{
+      margin-left: auto;
+      margin-right: auto;
+      height: fit-content;
+      width: 80%;
+  }
+
+
+.vidio_contaner .video video{
+    height: fit-content;
+    width: 100%;
+}
+
+
+.vidio_contaner .video iframe{
+    height: 680px;
+    width: 100%;
+}
+
+
+/*start media qury for medum size of screen like ipad and small screens */
+@media (max-width:  1260px) {
+    .photo_contaner{
+        width: 80%;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .vidio_contaner .video iframe{
+        height: 580px;
+    }
+
+    .logo{
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    .logo h2{
+        padding-right: 0;
+    }
+    .social-icons{
+        
+        grid-template-columns: repeat(2,1fr);
+        margin-left: 4%;
+    }
+    nav ul{
+        margin-left: -2rem;
+        
+    }
+    footer{
+        grid-template-columns: repeat(4,1fr);
+        text-align: left;
+    }
+}
+/*end media qury for medum size of screen like ipad and small screens */
+
+/*start media qury for mobile phone size but its not working currntly!!!!!! */
+  @media (max-width: 560px) {
+    .game_examples li{
+        color: yellow;
+    }
+    .logo{
+        
+        margin-left: 122%;
+    }
+  /*to set up btn size littel bigger*/
+    .btn_up{
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        border-radius: 50px;
+    }
+    .btn_up:hover{
+        cursor: pointer;
+        padding-top: 4rem;
+        padding-bottom: 4.5rem;
+        color: var(--nav-color);
+}
+footer{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(1,1fr);
+    text-align: center;
+}
+
+.social-icons{
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(1,1fr);
+    margin-left: 4%;
+}
+}
+/*end media qury for mobile phone size but its not working currntly!!!!!! */
+
+
+-------------------------------------------------
+
+
+html whole code 
+-------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Video Games Page
+        </title>
+        <link rel="stylesheet" href="Style.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    </head>
+    <body>
+
+      <div id="btn_up" class="btn_up">
+        <i class="fas fa-arrow-up"></i>
+      </div>
+        <header class="header-contaner">
+            <div class="logo">
+                <img st src="Img_Soruce/game_controller_win.ico" alt="">
+                <h2>Video Games</h2>
+                
+            <nav class="nav">
+              <ul class="nav-menu">
+                  <li><a href="#sec_main" class="nav-link">MAIN</a></li>
+                  <li><a href="#sec_op" class="nav-link">OPEN WORLD</a></li>
+                  <li><a href="#sec_fps" class="nav-link">SHOOTER FPS</a></li>
+                  <li><a href="#sec_hr" class="nav-link">SURVIVAL AND HORROR</a></li>
+                  <li class="btn_cont"><a href="#social-icons" class="nav-link btn-contact">CONTACT US</a></li>
+              </ul>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- Generic artical aboute Video Games-->
+<div>
+    <section >
+        <h2 class="title">Video Game Genres: Everything You Need to Know</h2>
+        <article id="sec_main" class="sec_main">     
+            <div class="left_div">
+            <p>Although video game genres were once fairly clear cut, that’s simply not the case these days. There’s a growing variety of
+                 genres and sub-genres to understand, especially as
+                  <a target="_blank" href="https://www.hp.com/us-en/shop/tech-takes/game-developers-vs-game-publishers">game developers</a>
+                    mix and blend different types of games in new and
+                  unexpected ways.</p>
+
+                  <p>
+                    That means the video-gaming landscape is constantly evolving. Studios work on tight schedules and follow trends when
+                      opportunity arises. We’re here to help you keep up. In our game genres list, we’ll cover 3 of the most relevant video game
+                       categories today.
+                  </p>
+                  <ol>
+                      <li>Open World</li>
+                      <li>Shooter (FPS)</li>
+                      <li>Survival and horror</li>
+                  </ol>
+
+                  <p>
+                    Keep in mind that many genres have some degree of overlap with each other. Even in the early days of gaming,
+                     terms like “action” and “fighting” could cover a lot of titles. That’s why many gamers prefer to use more specific names like those we’ll
+                      cover in this article as a way to distinguish the style of gameplay.
+                  </p>
+                </div>
+
+                <div class="main_img">
+                  
+                    <img src="Img_Soruce/player_main.jpg" alt="gamer photo">
+                  
+                </div>
+        </article>
+    </section>
+    
+    <!--Opwn worold section-->
+    <section id="sec_op" class="sec op">
+        <article>
+    
+            <h2>1.Sandbox</h2>
+            <p>
+                The term “sandbox” may be more recognizable from its usage in tech or even as an open-ended mode available within certain games.
+                 It’s often associated with player choice, open environments,and non-linear gameplay. The sandbox genre has grown from
+                  a small niche to encompass a huge variety of titles.
+            </p>
+            <p>
+                In these games, players often have less concrete goals and narrative pathways to pursue. Instead of beating the boss and 
+                saving the princess, you may face a variety of tasks you can accomplish in a number of different ways. This draws players
+                 into more immersive experiences, encouraging experimentation with what may be unfamiliar mechanics.
+            </p>
+
+            <p>
+                Sandbox titles can sometimes be highly conceptual and even lack some of the most recognizable gameplay elements. The 1984 game
+                 Elite is a key example, with a simple design and play focused on combat, exploration, and trading. It also showcased an early
+                  instance of procedural generation.
+            </p>
+
+            <p>
+                Simulation games like The Sims are also increasingly touted as sandbox titles, as are many popular franchises, including both 
+                Minecraft and Grand Theft Auto. As game worlds expand and narratives diversify, expect more of an overlap with other gaming 
+                genres.
+            </p>
+            <p>
+                Sandbox examples
+            </p>
+            <ul class="game_examples">
+                <li>Grand Theft Auto V</li>
+                <li>Assassins Creed Unity</li>
+                <li>Far Cry 6</li>
+            </ul>
+     <!--
+            <div class="slider_contaner a1">
+                <div class="slider a1">
+                   <img style="left: 0%;" src="Img_Soruce/ac_origins1 (1).jpg" alt="">
+                   <img style="left: 100%;"src="Img_Soruce/ac_origins1 (2).jpg" alt="">
+                   <img style="left: 200%;"src="Img_Soruce/ac_origins1 (3).jpg" alt="">
+                </div>
+                
+                <div id="lt" class="next_btn_lt"><i class="fas fa-chevron-left"></i></div>
+                <div id="rt" class="next_btn_rt"><i class="fas fa-chevron-right"></i></div>
+            </div>
+-->
+
+<!-- Slideshow container -->
+<div class="slideshow-container a1">
+
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides">
+      <div id="num_counter" class="numbertext">1 / 3</div>
+      <img id="slider_img" src="" style="width:100%">
+      <div id="slider_caption" class="text_cap"></div>
+      
+    </div>
+  <!--
+    <div class="mySlides">
+      <div class="numbertext">2 / 3</div>
+      <img src="Img_Soruce/gtav_img1.jpg" style="width:100%">
+      <div class="text">Grand Theft Auto V</div>
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">3 / 3</div>
+      <img src="Img_Soruce/ac_origins1 (3).jpg" style="width:100%">
+      <div class="text">Assassin's Creed Origins</div>
+    </div>
+  -->
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="decslid()">&#10094;</a>
+    <a class="next" onclick="plusslid()">&#10095;</a>
+  </div>
+  <br>
+  
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span  class="dot" onclick="dot_showslid(0)"></span>
+    <span class="dot" onclick="dot_showslid(1)"></span>
+    <span class="dot" onclick="dot_showslid(2)"></span>
+  </div>
+
+        </article>
+    </section>
+
+    <!--Shooter fps section-->
+    <section id="sec_fps" class="sec fps">
+        <article>
+    
+            <h2>3.Shooter (FPS and TPS)</h2>
+            <p>
+                The shooter is another long-standing genre that developed several early offshoots and branched out into
+                 two primary sub-genres: the first-person shooter (FPS) and third-person shooter (TPS).
+            </p>
+            <p>
+                There’s plenty of potential for overlap here, too, since many contemporary titles allow you to toggle between first and third-person 
+                viewpoints. Not only that, but most battle royale games
+                 – a sub-genre unto itself – operate as either first or third-person shooters, including Fortnite and PlayerUnknown’s Battlegrounds.
+            </p>
+
+            <p>
+                The key difference is perspective. An FPS simulates a typical human viewpoint, showing essentially what your in-game character sees in franchises like Half-Life,
+                 Call of Duty, and DOOM. A TPS pulls the perspective back
+                 and showcases your entire character and surrounding environment, such as in the Gears of War and Tom Clancy’s The Division series.
+            </p>
+
+            <p>
+                The premise for these games is simple, but it’s been repackaged in many ways over the years. Older players probably remember
+                 the earliest arcade and gallery-style shooters with on-the-rails gameplay and relatively simple environments. Then there are 
+                 shoot-em-ups (or shmups) and bullet-hell games, both of which rely heavily on twitchy gameplay involving plenty of shooting.
+            </p>
+            <p>
+                While most shooter games split into FPS and TPS gameplay, they’re frequently talked about as elements in other games. 
+                Grand Theft Auto V is an example of overlap. It rides the new wave of modern sandbox games, but it also has substantial
+                 TPS elements (and you can play it in first-person if you want). By contrast, the Halo series is primarily known for its 
+                 groundbreaking FPS gameplay.
+            </p>
+            <p>
+                Shooter FPS Examples
+            </p>
+            <ul class="game_examples">
+                <li>Battlefield</li>
+                <li>Call of Duty: Modern Warfare</li>
+                <li>Crysis 3</li>
+            </ul>
+           
+
+    </article>
+    </section>
+
+     <!-- photos here to fps -->
+     <div class="photo_contaner_big">
+      <div class="photo_contaner">
+        <!--photo one-->
+         <div class="img_div">
+           <img src="Img_Soruce/btf_2042.jfif" alt="Avatar" class="image">
+           <div class="overlay">
+             <div class="text">
+               <h2>Battlefield 2042</h2>
+                   <div>
+             <p>Battlefield™ 2042 marks the return to the iconic all-out warfare of the franchise. Squad up and bring a cutting-edge arsenal into massive-scale battlegrounds, set in a near-future world transformed by disorder.
+          </p>
+
+            </div>
+             </div>
+           </div>
+         </div>
+        
+       <!--photo tow-->
+         <div class="img_div">
+           <img src="Img_Soruce/call-of-duty-modern-warfare.jpg" alt="Avatar" class="image">
+           <div class="overlay">
+             <div class="text">
+               <h2>Call of Duty: Modern Warfare</h2>
+               <div>
+               <p>The best-selling, first-person action series of all time makes its return, setting out to reinvigorate the beloved Modern Warfare franchise. This time around, developer Infinity Ward will take players on the most</p>
+              </div>
+              </div>
+           </div>
+         </div>
+
+       <!--photo three-->
+         <div class="img_div">
+           <img src="Img_Soruce/crysis-3-cover-.jpg" alt="Avatar" class="image">
+           <div class="overlay">
+             <div class="text">
+               <h2>Crysis 3</h2>
+               <div>
+               <p>The award-winning developer Crytek is back with Crysis 3, the best-looking shooter ever! Return to the fight as Prophet, the Nanosuit soldier as he rediscovers his humanity and exacts revenge.</p>
+              </div>
+              </div>
+           </div>
+         </div>
+         
+
+        <!--photo four-->
+         <div id="last" class="img_div">
+           <img src="Img_Soruce/cs_go.jpg" alt="Avatar" class="image">
+           <div class="overlay">
+             <div class="text">
+               <h2>Counter-Strike</h2>
+               <div>
+               <p>Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago.</p>
+              </div>
+              </div>
+           </div>
+         </div>
+
+
+       </div> 
+       </div>
+
+    <!--HOROR section-->
+    <section id="sec_hr" class="sec hr">
+        <article>
+    
+            <h2>9.Survival and horror</h2>
+            <p>
+                Survival and horror games have a lot of overlap, to the point that they even created their own sub-genre (survival horror).
+                 In particular, horror games often share some basic features with their survival counterparts, though the reverse is less
+                  often true. As developers add more FPS and conventional shooter features to certain horror and survival titles, there’s
+                   even ongoing debate about how to define these games.
+            </p>
+            <p>
+                The core mechanics of a survival game centers on resource management, often incorporating crafting or salvage systems 
+                that you can use to help keep your character alive. Minecraft is a popular standout, as is Don’t Starve. And then there 
+                are games like The Long Dark, which focuses entirely on survival elements with a dedicated mode that increases difficulty.
+            </p>
+
+           <p>
+            Horror is an even broader category, arguably encompassing dozens of survival titles. Almost anything with zombies, a post-apocalyptic
+             storyline, or loads of jump scares is considered horror. These titles are often psychological, too, and use tension to immerse the
+              player in the game. On the pure horror side, you have games like Amnesia: The Dark Descent, Alien: Isolation, and Blair Witch. 
+              However, the most popular horror titles tend to fall into the survival-horror side of things, such as the Resident Evil and Evil
+               Within franchises.
+           </p>
+            <p>
+                Survival Examples
+            </p>
+            <ul class="game_examples">
+                <li>The Long Dark</li>
+                <li>Don’t Starve</li>
+                <li>Resident Evil (survival-horror)</li>
+            </ul>
+
+            
+            
+    </article>
+    </section>
+
+<!--horro video-->
+<div class="vidio_contaner">
+  <div class="video">
+                    
+
+   <video id="horro_video" controls width="70%">
+      <source src="Img_Soruce/y2mate.com - Resident Evil 7 Biohazard Official Launch Trailer_1080pFHR.mp4" type="video/mp4" >
+   </video>
+<!-- for youtube video-->
+   <!--
+   <iframe  src="https://www.youtube.com/embed/W1OUs3HwIuo?autoplay=1&mute=1">
+   </iframe>
+    -->
+
+  </div>
+</div>
+
+    <!--footer-->
+    <footer class="footer">
+    <div class="footer_contaner">
+    <!--web logo and name-->
+        <div class="logo footer">
+            <img st src="Img_Soruce/game_controller_win.ico" alt="">
+            <h2>Video Games</h2>
+        
+      <!--social media icons-->
+        </div>
+            <div id="social-icons" class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100008809051585" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/m_it_01/"><i class="fab fa-instagram" target="_blank"></i></a>
+                <a href="https://twitter.com/Mohamme65677827" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="" target="_blank"><i class="fab fa-google"></i></a>
+            </div>
+       </div>
+
+        
+            <!--menu like a nav menu-->
+            <ul class="ul_menu">
+                <li class="ft_men">Menu</li>
+                  <li><a href="#sec_main" class="ft-link">MAIN</a></li>
+                  <li><a href="#sec_op" class="ft-link">OPEN WORLD</a></li>
+                  <li><a href="#sec_fps" class="ft-link">SHOOTER FPS</a></li>
+                  <li></nobr><a href="#sec_hr" class="ft-link">SURVIVAL AND HORROR</a></li>
+              </ul>
+        
+    <!--Institutional-->
+        <ul class="ul_menu">
+          <li class="ft_men">Institutional</li>
+            <li><a href="#sec_op" class="ft-link">Who we are</a></li>
+            <li><a href="#sec_fps" class="ft-link">Work with us</a></li>
+        </ul>
+
+        <!--Terms-->
+        <ul class="ul_menu">
+            <li class="ft_men">Terms</li>
+            <li><a href="#sec_op" class="ft-link">Privacy policy</a></li>
+            <li><a href="#sec_fps" class="ft-link">Cookies police</a></li>
+            <li><a href="#sec_hr" class="ft-link">Terms of use</a></li>
+        </ul>
+    </div>
+    </div>
+    </footer>
+    </body>
+    <script src="ScrollReveal.js"></script>
+    <script src="SmoothScroll.js"></script>
+    <script src="Main.js"></script>
+</html>
+
+----------------------------------------------------------------

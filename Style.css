@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap');
+/*to declare some varable used to*/
+:root{
+    --nav-font-family:'Open Sans', sans-serif;  
+    --nav-font-size: 1.2rem;
+    --nav-h2-font-size: 1rem;
+    --arc-p-font-size: 1.15rem;
+
+
+
+/*old them*/
+/* 
+    --nav-color:#BDD4DA;
+    --head-contaner-backround-color:#478BA0 ;
+    --nav-btn-hover-color:#F3A692;
+    --links-color: #A442F4;
+    --image-overlay-backround-color:#5B5B5B;
+    --footer-backround-color :#477583;
+    --footer-titles-color : #3d3f3f;
+    
+    /* for footer color : #477583*/
+
+
+    --nav-color:#BDD4DA;
+    --head-contaner-backround-color:#478BA0 ;
+    --nav-btn-hover-color:#F3A692;
+    --links-color: #A442F4;
+    --image-overlay-backround-color:#686666;
+    --footer-backround-color :#3E839A;
+    --footer-titles-color : #5B5B5B;
+    
+
+
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #e7e5e4;
+     overflow-x: hidden;
+}
+/*start heading custimize*/
+.header-contaner{
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color:var(--head-contaner-backround-color) ;
+    font-family: var(--nav-font-family);
+    z-index: 100;
+    
+}
+nav ul{
+    height: 2.2rem;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    list-style: none;
+    margin-left: 0;
+    
+}
+/*nav list */
+.nav-link{
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: var(--nav-font-size);
+    color: var(--nav-color);
+    transition: all 0.2s ease-in;
+    word-spacing: 0.1rem;
+}
+.nav-link:hover{
+border-bottom: solid var(--nav-btn-hover-color);
+color: var(--nav-btn-hover-color);
+}
+
+nav ul li{
+    margin-top: 0.5rem;
+}
+/*start logo div */
+.logo{
+    display: flex;
+    margin-left: 8%;
+    margin-right: 8%;
+     color:var(--nav-color) ;
+     font-size: var(--nav-h2-font-size);
+     transition: all 0.8s ease-in-out;
+}
+.logo img{
+    margin-top: 0.1rem;
+    height: 4rem;
+}
+.logo h2{
+    display: inline-block;
+ 
+}
+/*end of logo div*/
+
+/*to set contact btn btn */
+nav ul .btn_cont{
+    margin-top: 0;
+}
+.nav-link.btn-contact{
+    padding: 0.4rem;
+    margin-left: 0.4rem;
+    border: solid ;
+    border-radius: 1rem;
+}
+.nav-link.btn-contact:hover{
+    background-color: var(--image-overlay-backround-color) ;
+    color: white;
+    border-color: var(--footer-titles-color) ;
+}
+/*end of contact button*/
+/*end of heading */
+/*start main section */
+section{
+    font-family: 'Cairo', sans-serif;
+}
+
+section .title{
+    margin-left: 1%;;
+    margin-bottom: -0.5rem;
+}
+
+.sec_main{
+    display: flex;
+    flex-direction: row;
+    margin-left: 1%;
+    height: 100%;
+    width: 99%;
+}
+
+.sec_main .left_div{
+    width: 55%;
+}
+.main_img{
+    width: 45%;
+}
+.main_img img{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    
+}
+article div p{
+    font-size: var(--arc-p-font-size);
+   /* font-weight: bold;*/
+}
+/*for developer a tag */
+.sec_main article div p a{
+color: var(--links-color);
+text-decoration: none;
+font-weight: bold;
+}
+.main_img{
+    margin-top: 3rem;
+    margin-left: 2%;
+}
+/*end of main section*/
+
+/*start  open world atrebute*/
+.sec {
+margin-left: 1%;
+}
+.game_examples {
+font-weight: bold;
+font-style: italic;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 85%;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: block;
+  
+}
+.mySlides img{
+    height: 600px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text_cap {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot{
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition:  all 0.3s ease;
+}
+
+.active{
+    background-color: #717171;
+}
+
+.dot:hover{
+    background-color: #717171;
+}
+
+#slider_caption{
+    bottom: 0;
+}
+
+/*end of open world*/
+
+/*start footer custimization*/
+footer{
+    background-color: var(--footer-backround-color);
+}
+.social-icons{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-left: 4%;
+}
+.social-icons i{
+    padding: 0.5rem;
+    font-size: 2.2rem;
+    color: var(--nav-color);
+}
+.social-icons i:hover{
+    color: var(--nav-btn-hover-color);
+    cursor: pointer;
+}
+.footer_contaner{
+    margin-left: 4%;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+footer{
+    /*
+    display: flex;
+    flex-direction: row;
+*/
+display: grid;
+grid-template-columns: repeat(4,1fr);
+
+    font-family: var(--nav-font-family);
+    height: fit-content;
+    bottom: 0px;
+
+}
+.ul_menu{
+    overflow-x: hidden;
+    list-style: none;
+    padding-left: 6%;
+    padding-right: 6%;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.ul_menu li{
+   color: var(--footer-titles-color);
+   /*color: #5A5B5B;*/
+   font-weight: bold;
+}
+.ul_menu li{
+    margin-top: 0.4rem
+}
+
+
+.ft_men{
+font-family: var(--nav-font-family);
+text-decoration: none;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: var(--nav-font-size);
+    color: var(--nav-color);
+    transition: all 0.2s ease-in;
+    margin-bottom: 1rem;
+}
+.ft_men :hover{
+    border-bottom: none;
+    cursor: pointer;
+    }
+
+    .ft-link{
+        display: inline-block;
+        text-decoration: none;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: var(--nav-font-size);
+        color: var(--nav-color);
+        margin-bottom: 0.5rem;
+        transition: all 0.2s ease-in;
+    }
+    .ft-link:hover{
+        color: var(--nav-btn-hover-color);
+    }
+    
+    .menu_footer{
+        margin-left: 5%;
+    }
+    /*end footer custimazaion*/
+    /*start up button */
+    .btn_up{
+    display: flex;
+    position: fixed;
+    text-align: center;
+    font-size: 1.5rem;
+     background-color: #5A5B5B;
+     color: darkgrey;
+     width: 50px;
+     border-radius: 35px;
+     z-index: 200;
+     bottom: 2rem;
+     right: -20%;
+     transition: all 0.4s ease-in-out;
+     justify-content: center;
+     padding-top: 0.5rem;
+     padding-bottom: 0.5rem;
+    }
+    .btn_up.show{
+        right: 2rem;
+    }
+   .btn_up:hover{
+       cursor: pointer;
+       padding-top: 1rem;
+       padding-bottom: 1.2rem;
+       color: var(--nav-color);
+   }
+   /*end of up button*/
+
+   /*start photo contaner for fps sction*/
+.photo_contaner_big{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+
+}
+.photo_contaner{
+     display: grid;
+     grid-template-columns: repeat(4,1fr);
+     align-items: center;
+     justify-content: center;
+}
+.photo_contaner #last{
+    margin-right: 3rem;
+}
+.img_div{
+position: relative;
+margin-left: 1rem;
+margin-right: 1rem;
+margin-bottom: 2rem;
+height: 400px;
+width: 300px;
+
+}
+.img_div img{
+    height: 400px;
+    width: 300px;
+/*to made it like a */
+    margin: 1rem;
+    display: flex;
+}
+
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--image-overlay-backround-color);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+  
+  .img_div:hover .overlay {
+    height: 100%;
+  }
+  
+  .text {
+    font-family: 'Cairo', sans-serif;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 1rem;
+    text-align: center;
+  }
+  .text div p{
+      left: 0;
+      bottom: 0;
+      font-size: 18px;
+      margin: 1rem;
+      text-align: center;
+  }
+/*end of photo of fps section */
+
+  /*video setting*/
+  .vidio_contaner{
+      align-items: center;
+      justify-content: center;
+  }
+  .vidio_contaner .video{
+      margin-left: auto;
+      margin-right: auto;
+      height: fit-content;
+      width: 80%;
+  }
+
+
+.vidio_contaner .video video{
+    height: fit-content;
+    width: 100%;
+}
+
+
+.vidio_contaner .video iframe{
+    height: 680px;
+    width: 100%;
+}
+
+
+/*start media qury for medum size of screen like ipad and small screens */
+@media (max-width:  1260px) {
+    .photo_contaner{
+        width: 80%;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .vidio_contaner .video iframe{
+        height: 580px;
+    }
+
+    .logo{
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    .logo h2{
+        padding-right: 0;
+    }
+    .social-icons{
+        
+        grid-template-columns: repeat(2,1fr);
+        margin-left: 4%;
+    }
+    nav ul{
+        margin-left: -2rem;
+        
+    }
+    footer{
+        grid-template-columns: repeat(4,1fr);
+        text-align: left;
+    }
+}
+/*end media qury for medum size of screen like ipad and small screens */
+
+/*start media qury for mobile phone size but its not working currntly!!!!!! */
+  @media (max-width: 560px) {
+    .game_examples li{
+        color: yellow;
+    }
+    .logo{
+        
+        margin-left: 122%;
+    }
+  /*to set up btn size littel bigger*/
+    .btn_up{
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        border-radius: 50px;
+    }
+    .btn_up:hover{
+        cursor: pointer;
+        padding-top: 4rem;
+        padding-bottom: 4.5rem;
+        color: var(--nav-color);
+}
+footer{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(1,1fr);
+    text-align: center;
+}
+
+.social-icons{
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(1,1fr);
+    margin-left: 4%;
+}
+}
+/*end media qury for mobile phone size but its not working currntly!!!!!! */
