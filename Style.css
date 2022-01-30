@@ -38,6 +38,7 @@ html{
 body{
     background-color: #e7e5e4;
      overflow-x: hidden;
+     margin: 0;
 }
 /*start heading custimize*/
 .header-contaner{
