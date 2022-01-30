@@ -50,7 +50,6 @@ body{
     background-color:var(--head-contaner-backround-color) ;
     font-family: var(--nav-font-family);
     z-index: 100;
-    
 }
 nav{
     margin-left: 10%;
@@ -125,14 +124,14 @@ section{
 }
 
 section .title{
-    margin-left: 1%;;
+    margin-left: 1%;
+    padding-left: 0.7%;
     margin-bottom: -0.5rem;
 }
-
 .sec_main{
     display: flex;
     flex-direction: row;
-    margin-left: 1%;
+    margin-left: 1.2%;
     height: 100%;
     width: 99%;
 }
@@ -149,6 +148,10 @@ section .title{
     overflow: hidden;
     
 }
+article{
+    margin-left: 0.4%;
+}
+
 article div p{
     font-size: var(--arc-p-font-size);
    /* font-weight: bold;*/
@@ -273,13 +276,13 @@ footer{
     grid-template-columns: repeat(4,1fr);
     margin-left: 4%;
 }
-.social-icons a{
-    cursor: unset;
-}
 .social-icons i{
     padding: 0.5rem;
     font-size: 2.2rem;
     color: var(--nav-color);
+}
+.social-icons a{
+    cursor: unset;
 }
 .social-icons i:hover{
     color: var(--nav-btn-hover-color);
