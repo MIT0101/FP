@@ -52,6 +52,9 @@ body{
     z-index: 100;
     
 }
+nav{
+    margin-left: 10%;
+}
 nav ul{
     height: 2.2rem;
     display: flex;
@@ -83,7 +86,7 @@ nav ul li{
 /*start logo div */
 .logo{
     display: flex;
-    margin-left: 8%;
+    margin-left: 6%;
     margin-right: 8%;
      color:var(--nav-color) ;
      font-size: var(--nav-h2-font-size);
